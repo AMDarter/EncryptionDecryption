@@ -41,26 +41,3 @@ class EncryptionDecryption
         return substr($decrypted, 0, -strlen($this->salt)); // Remove the salt from the end
     }
 }
-
-// Example usage
-try {
-    $key = "your-secret-key";
-    $cipher = "aes-256-ctr"; // Optional: defaults to aes-256-ctr if not provided
-    $options = 0; // Optional: defaults to 0 if not provided
-    $salt = "unique-salt"; // Optional: defaults to empty string if not provided
-
-    $data = "This is a secret message.";
-    $encryption = new EncryptionDecryption($key, $cipher, $options, $salt);
-    $encryptedData = $encryption->encrypt($data);
-    echo "Encrypted: " . $encryptedData . PHP_EOL;
-
-    $decryptedData = $encryption->decrypt($encryptedData);
-    if ($decryptedData === false) {
-        echo "Decryption failed or salt mismatch." . PHP_EOL;
-    } else {
-        echo "Decrypted: " . $decryptedData . PHP_EOL;
-    }
-} catch (Exception $e) {
-    echo 'Error: ' . $e->getMessage() . PHP_EOL;
-}
-?>
