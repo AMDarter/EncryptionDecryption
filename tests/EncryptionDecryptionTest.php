@@ -57,24 +57,4 @@ class EncryptionDecryptionTest extends TestCase
         $this->assertFalse($decryptedData, 'Decryption of invalid data should return false');
     }
 
-    public function testMissingOpenSSLExtension()
-    {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('The OpenSSL extension is not loaded.');
-
-        // Temporarily disable the OpenSSL extension
-        $originalState = extension_loaded('openssl');
-        if ($originalState) {
-            // Mock or simulate absence of the extension if possible
-            // This is a conceptual example; actual implementation may vary
-            // e.g., set `extension_loaded` to false or mock the behavior
-            // For this example, we'll assume the extension is missing
-            $this->markTestIncomplete('Cannot run test without OpenSSL extension.');
-        }
-
-        // Re-enable the OpenSSL extension after the test
-        if ($originalState) {
-            // Restore the original state
-        }
-    }
 }
