@@ -35,7 +35,9 @@ To encrypt data, use the encrypt method:
 $data = "This is a secret message.";
 $encryptedData = $encryption->encrypt($data);
 echo "Encrypted: " . $encryptedData . PHP_EOL;
-Decrypting Data
+```
+
+### Decrypting Data
 To decrypt data, use the decrypt method:
 
 ```php
